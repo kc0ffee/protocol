@@ -1,0 +1,69 @@
+openapi: "3.0.3"
+
+info:
+  title: "API"
+  version: "0.1.0"
+
+components:
+  schemas:
+    theme:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        theme:
+          type: string
+          example: "Hello Worldを出力する"
+    post_body:
+      type: object
+      properties:
+        code:
+          type: string
+          example: 'console.log("Hello World")'
+    score:
+      type: object
+      properties:
+        code_line:
+          type: number
+        token_len:
+          type: number
+        token_count:
+          type: number
+        function_len:
+          type: number
+
+paths:
+  "/api/theme":
+    get:
+      summary: "APIサーバーからデータを受け取るためのAPI"
+      responses:
+        "200":
+          description: "成功"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/theme"
+  "/api/code":
+    post:
+      summary: "ユーザーが作成したコードをサーバーに送信するためのAPI"
+      requestBody:
+        description: "ユーザーが作成したコードをサーバーに送信する"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  $ref: "#/components/schemas/post_body"
+      responses:
+        "200":
+          description: "サーバーで評価したスコア"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  score:
+                    $ref: "#/components/schemas/score"
