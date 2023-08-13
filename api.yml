@@ -26,12 +26,16 @@ components:
       properties:
         code_line:
           type: number
+          example: 10
         token_len:
           type: number
+          example: 20
         token_count:
           type: number
+          example: 30
         function_len:
           type: number
+          example: 10
 
 paths:
   "/api/theme":
