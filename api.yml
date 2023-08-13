@@ -18,6 +18,9 @@ components:
     post_body:
       type: object
       properties:
+        id:
+          type: number
+          example: 1
         code:
           type: string
           example: 'console.log("Hello World")'
