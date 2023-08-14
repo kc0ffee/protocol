@@ -6,34 +6,6 @@ info:
 
 components:
   schemas:
-    room:
-      type: object
-      properties:
-        id:
-          type: string
-          example: "0000"
-    status_ok:
-      type: object
-      properties:
-        status:
-          type: string
-          example: ok
-        name:
-          type: string
-          example: Delete
-    status_failure:
-      type: object
-      properties:
-        status:
-          type: string
-          example: failure
-        reason:
-          type: string
-          example: Attempted to delete a non-existent room.
-        name:
-          type: string
-          example: Delete
-
     theme:
       type: object
       properties:
@@ -55,6 +27,12 @@ components:
     score:
       type: object
       properties:
+        your_type:
+          type: string
+          example: Your Type
+        type_description:
+          type: string
+          example: Type description
         code_line:
           type: number
           example: 10
@@ -69,54 +47,18 @@ components:
           example: 10
 
 paths:
-  "/api/room/create":
-    get:
-      tags:
-        - "room"
-      summary: "ルームに関するAPI"
-      responses:
-        "200":
-          description: "作成されたルームのID"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/room"
-  "/api/room/delete":
-    delete:
-      tags:
-        - "room"
-      summary: "ルームを削除するAPI"
-      parameters:
-        - name: id
-          in: query
-          required: true
-          schema:
-            $ref: "#/components/schemas/room"
-
-      responses:
-        "200":
-          description: "ルームを削除する"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/status_ok"
-        "400":
-          description: "不正なリクエスト"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/status_failure"
-
   "/api/theme":
     get:
-      summary: "APIサーバーからデータを受け取るためのAPI"
+      summary: "APIサーバーからテーマデータの一覧を受け取るためのAPI"
       responses:
         "200":
           description: "成功"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/theme"
+                type: array
+                items:
+                  $ref: "#/components/schemas/theme"
   "/api/code":
     post:
       summary: "ユーザーが作成したコードをサーバーに送信するためのAPI"
