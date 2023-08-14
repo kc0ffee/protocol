@@ -6,6 +6,34 @@ info:
 
 components:
   schemas:
+    room:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "0000"
+    status_ok:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        name:
+          type: string
+          example: Delete
+    status_failure:
+      type: object
+      properties:
+        status:
+          type: string
+          example: failure
+        reason:
+          type: string
+          example: Attempted to delete a non-existent room.
+        name:
+          type: string
+          example: Delete
+
     theme:
       type: object
       properties:
@@ -41,6 +69,44 @@ components:
           example: 10
 
 paths:
+  "/api/room/create":
+    get:
+      tags:
+        - "room"
+      summary: "ルームに関するAPI"
+      responses:
+        "200":
+          description: "作成されたルームのID"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/room"
+  "/api/room/delete":
+    get:
+      tags:
+        - "room"
+      summary: "ルームを削除するAPI"
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            $ref: "#/components/schemas/room"
+
+      responses:
+        "200":
+          description: "ルームを削除する"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/status_ok"
+        "400":
+          description: "不正なリクエスト"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/status_failure"
+
   "/api/theme":
     get:
       summary: "APIサーバーからデータを受け取るためのAPI"
