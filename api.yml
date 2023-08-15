@@ -1,8 +1,31 @@
 openapi: "3.0.3"
 
 info:
-  title: "API"
+  title: "Code Connect API"
+  description: |
+    Code Connectで利用するAPIの定義
+    # Feature
+    - theme
+      - テーマをサーバーから取得するAPI
+    - code
+      - ユーザーが作成したコードをサーバーに送信する機能
+
+    More Info =>  Notion
   version: "0.1.0"
+
+servers:
+  - url: http://localhost:{port}
+    description: Local development
+    variables:
+      port:
+        enum: ["3000", "8080"]
+        default: "3000"
+
+tags:
+  - name: Theme
+    description: テーマを管理するAPI
+  - name: Code
+    description: コードを操作するAPI
 
 components:
   schemas:
@@ -50,6 +73,8 @@ paths:
   "/api/theme":
     get:
       summary: "APIサーバーからテーマデータの一覧を受け取るためのAPI"
+      tags:
+        - "Theme"
       responses:
         "200":
           description: "成功"
@@ -62,6 +87,8 @@ paths:
   "/api/code":
     post:
       summary: "ユーザーが作成したコードをサーバーに送信するためのAPI"
+      tags:
+        - "Code"
       requestBody:
         description: "ユーザーが作成したコードをサーバーに送信する"
         required: true
