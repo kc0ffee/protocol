@@ -65,6 +65,8 @@ paths:
   "/api/theme":
     get:
       summary: "APIサーバーからテーマデータの一覧を受け取るためのAPI"
+      tags:
+        - "Theme"
       responses:
         "200":
           description: "成功"
@@ -77,6 +79,8 @@ paths:
   "/api/code":
     post:
       summary: "ユーザーが作成したコードをサーバーに送信するためのAPI"
+      tags:
+        - "Code"
       requestBody:
         description: "ユーザーが作成したコードをサーバーに送信する"
         required: true
