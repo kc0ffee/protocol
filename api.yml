@@ -1,7 +1,16 @@
 openapi: "3.0.3"
 
 info:
-  title: "API"
+  title: "Code Connect API"
+  description: |
+    Code Connectで利用するAPIの定義
+    # Feature
+    - theme
+      - テーマをサーバーから取得するAPI
+    - code
+      - ユーザーが作成したコードをサーバーに送信する機能
+
+    More Info =>  Notion
   version: "0.1.0"
 
 components:
