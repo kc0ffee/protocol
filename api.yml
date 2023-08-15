@@ -13,6 +13,14 @@ info:
     More Info =>  Notion
   version: "0.1.0"
 
+servers:
+  - url: http://localhost:{port}
+    description: Local development
+    variables:
+      port:
+        enum: ["3000", "8080"]
+        default: "3000"
+
 tags:
   - name: Theme
     description: テーマを管理するAPI
