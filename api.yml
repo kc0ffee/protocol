@@ -13,6 +13,12 @@ info:
     More Info =>  Notion
   version: "0.1.0"
 
+tags:
+  - name: Theme
+    description: テーマを管理するAPI
+  - name: Code
+    description: コードを操作するAPI
+
 components:
   schemas:
     theme:
