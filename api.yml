@@ -41,9 +41,12 @@ components:
     post_body:
       type: object
       properties:
-        id:
+        themeId:
           type: number
           example: 1
+        language:
+          type: string
+          example: ts
         code:
           type: string
           example: 'console.log("Hello World")'
