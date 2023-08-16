@@ -33,7 +33,7 @@ API に関する仕様はこのリポジトリを参照してください。
 // リクエストボディー
 {
   "code": {
-    "id": 1,
+    "themeId": 1,
     "language": "ts",
     "code": "console.log(\"Hello World\")"
   }
