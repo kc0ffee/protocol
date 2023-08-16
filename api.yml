@@ -47,6 +47,17 @@ components:
         code:
           type: string
           example: 'console.log("Hello World")'
+    code_response:
+      type: object
+      properties:
+        id:
+          type: number
+        themeId:
+          type: number
+        code:
+          type: string
+        timeStamp:
+          type: string
     score:
       type: object
       properties:
@@ -104,7 +115,22 @@ paths:
                   $ref: "#/components/schemas/post_body"
       responses:
         "200":
-          description: "サーバーで評価したスコア"
+          description: "サーバーで評価された結果を取得するためのデータ"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  score:
+                    $ref: "#/components/schemas/code_response"
+  "/api/result":
+    get:
+      summary: IDから評価結果を取得する
+      tags:
+        - "Code"
+      responses:
+        "200":
+          description: サーバーで評価されたデータ
           content:
             application/json:
               schema:
