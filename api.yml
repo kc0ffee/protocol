@@ -19,7 +19,7 @@ servers:
     variables:
       port:
         enum: ["3000", "8080"]
-        default: "3000"
+        default: "8080"
 
 tags:
   - name: Theme
@@ -112,20 +112,14 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                code:
-                  $ref: "#/components/schemas/post_body"
+              $ref: "#/components/schemas/post_body"
       responses:
         "200":
           description: "サーバーで評価された結果を取得するためのデータ"
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  score:
-                    $ref: "#/components/schemas/code_response"
+                $ref: "#/components/schemas/code_response"
   "/api/result":
     get:
       summary: IDから評価結果を取得する
@@ -137,7 +131,4 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  score:
-                    $ref: "#/components/schemas/score"
+                $ref: "#/components/schemas/score"

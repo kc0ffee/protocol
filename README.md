@@ -32,22 +32,18 @@ API に関する仕様はこのリポジトリを参照してください。
 ```json
 // リクエストボディー
 {
-  "code": {
-    "themeId": 1,
-    "language": "ts",
-    "code": "console.log(\"Hello World\")"
-  }
+  "themeId": 1,
+  "language": "ts",
+  "code": "console.log(\"Hello World\")"
 }
 ```
 
 ```json
 {
-  "score": {
-    "id": 0,
-    "themeId": 0,
-    "code": "string",
-    "timeStamp": "string"
-  }
+  "id": 0,
+  "themeId": 0,
+  "code": "string",
+  "timeStamp": "string"
 }
 ```
 
@@ -55,13 +51,11 @@ API に関する仕様はこのリポジトリを参照してください。
 
 ```json
 {
-  "score": {
-    "your_type": "Your Type",
-    "type_description": "Type description",
-    "code_line": 10,
-    "token_len": 20,
-    "token_count": 30,
-    "function_len": 10
-  }
+  "your_type": "Your Type",
+  "type_description": "Type description",
+  "code_line": 10,
+  "token_len": 20,
+  "token_count": 30,
+  "function_len": 10
 }
 ```
