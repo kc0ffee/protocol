@@ -19,7 +19,7 @@ servers:
     variables:
       port:
         enum: ["3000", "8080"]
-        default: "3000"
+        default: "8080"
 
 tags:
   - name: Theme
