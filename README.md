@@ -18,12 +18,8 @@ API に関する仕様はこのリポジトリを参照してください。
 
 ```json
 {
-  "themes": [
-    {
-      "id": 1,
-      "theme": "Hello Worldを出力する"
-    }
-  ]
+  "id": 1,
+  "theme": "Hello Worldを出力する"
 }
 ```
 
