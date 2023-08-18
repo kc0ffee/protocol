@@ -120,6 +120,11 @@ paths:
       summary: IDから評価結果を取得する
       tags:
         - "Code"
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: number
       responses:
         "200":
           description: サーバーで評価されたデータ
